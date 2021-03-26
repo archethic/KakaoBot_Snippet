@@ -9882,16 +9882,29 @@ interface API {
     getContext(): android.context.Context;
 
     reload(): boolean;
-    reload(scriptName: string, throwOnError: boolean): boolean;
+    reload(scriptName: string, throwOnError: boolean = false): boolean;
 
     compile(): boolean;
-    compile(scriptName: string, throwOnError: boolean): boolean;
+    compile(scriptName: string, throwOnError: boolean = false): boolean;
 
     prepare(scriptName: string): number;
 
     unload(scriptName: string): boolean;
 
     isOn(scriptNmae: string): boolean;
+
+    isCompiled(scriptName: string): boolean;
+
+    isCompiling(scriptName: string): boolean;
+
+    getScriptNames(): string[];
+
+    replyRoom(room: string, message: string): boolean;
+    replyRoom(room: string, message: string, hideToast: boolean = false): boolean;
+
+    canReply(room: string): boolean;
+
+    showToast(content: string, length: number): void;
 }
 
 interface MSAssertion {
