@@ -9870,7 +9870,7 @@ declare var Location: {
     new(): Location;
 };
 
-//카카오톡 봇
+//----------------------------카카오톡 봇 인터페이스---------------------------
 
 interface API {
     on(): boolean;
@@ -9923,6 +9923,41 @@ interface API {
 
     markAsRead(room: string, packageName: string): boolean;
 }
+
+interface UTILS {
+    getWebText(url: string): string;
+
+    parse(url: string): org.jsoup.nodes.Document;
+
+    getAndroidVersionCode(): number;
+
+    getAndroidVersionName(): string;
+
+    getPhoneBrand(): string;
+
+    getPhoneModel(): string;
+}
+
+interface FILESTREAM {
+    read(path: string): string;
+
+    write(path: string, data: string): string;
+
+    append(path: string, data: string): string;
+
+    remove(path: String): boolean;
+}
+
+interface DATABASE {
+    getDataBase(fileName: string): string;
+
+    setDataBase(fileName: string, data: string): string;
+
+    appendDataBase(fileName: string, data: string): string;
+
+    removeDataBase(fileName: string): boolean;
+}
+//----------------------------카카오톡 봇 인터페이스---------------------------
 
 interface MSAssertion {
     readonly id: string;
@@ -19667,8 +19702,12 @@ declare var innerHeight: number;
 declare var innerWidth: number;
 declare var length: number;
 declare var location: Location;
-//카카오톡 봇
+//----------------------카카오톡 봇 선언----------------------------
 declare var Api: API;
+declare var Utils: UTILS;
+declare var FileStream: FILESTREAM;
+declare var DataBase: DATABASE;
+//----------------------카카오톡 봇 선언----------------------------
 declare var locationbar: BarProp;
 declare var menubar: BarProp;
 declare var msContentScript: ExtensionScriptApis;
