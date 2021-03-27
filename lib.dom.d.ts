@@ -9905,6 +9905,23 @@ interface API {
     canReply(room: string): boolean;
 
     showToast(content: string, length: number): void;
+
+    makeNoti(title: string, content: string, id: number): string[];
+
+    papagoTranslate(sourceLanguage: string, targetLanguage: string, content: string): string;
+    papagoTranslate(sourceLanguage: string, targetLanguage: string, content: string, errorToString: boolean = false);
+
+    gc(): void;
+
+    UIThread(func: function, onComplete: function): void;
+
+    getActiveThreadsCound(scriptName: string): number;
+
+    interruptThreads(scriptName: string): void;
+
+    isTerminated(scriptName: string): boolean;
+
+    markAsRead(room: string, packageName: string): boolean;
 }
 
 interface MSAssertion {
